@@ -12,19 +12,19 @@ The program produces a float, specifically the machine epsilon for a floating po
 ### Code:
 ```C++
 void SMacEps(){
-float x=1.0;
-float x0=1.0;
-while ((x+x0) != 1){
-x=x/2;
-}
-cout << "The machine epsilon for floating point number system is " << x << endl;
+  float x=1.0;
+  float x0=1.0;
+  while ((x+x0) != 1){
+  x=x/2;
+  }
+  cout << "The machine epsilon for floating point number system is " << x << endl;
 }
 ```
 
 ### Example:
 ```C++
 int main(){
-SMacEps();
+  SMacEps();
 }
 ```
 And the output is as follows: "The machine epsilon for floating point number system is 5.96046e-08"
