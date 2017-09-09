@@ -1,7 +1,7 @@
 ## NAME: DMacEps
 
 ### Description: 
-This routine will calculate the double precision of the computer I am working on. The program adds a value to one and divides by two until the value is small enough that the quotient is accepted as one. This value provides the machine epsilon of the computer. 
+This routine will calculate the double precision of the computer I am working on. The program adds a value to one. This value is initially one, but is divided by two each iteration, until the sum is accepted as one. The value on the final iteration provides the machine epsilon of the computer. 
 
 ### Input:
 Since this routine is specific in the values it uses to calculate the accuracy, there is no input.
@@ -14,14 +14,12 @@ The program produces a double, specifically the machine epsilon for a double pre
 void DMacEps(){
 double y=1.0;
 double y0=1.0;
-int Dn=0;
-while((1+y0) != 1){
-y0=y;
+while((y+y0) != 1){
 y=y/2;
-Dn++;
 }
-cout << "The machine epsilon for double precision number systems is " << y0 << endl;
+cout << "The machine epsilon for double precision number systems is " << y << endl;
 }
+
 ```
 
 ### Example:
