@@ -1,7 +1,7 @@
 ## NAME: SMacEps
 
 ### Description: 
-This routine will calculate the floating point precision of the computer I am working on. The program adds a value to one and divides by two until the value is small enough that the sum is accepted as one. This value provides the machine epsilon of the computer. 
+This routine will calculate the floating point precision of the computer I am working on. The program adds a value to one. This value is initially one, but is divided by two each iteration, until the sum is accepted as one. The value on the final iteration provides the machine epsilon of the computer. 
 
 ### Input:
 Since this routine is specific in the values it uses to calculate the accuracy, there is no input.
@@ -14,13 +14,10 @@ The program produces a float, specifically the machine epsilon for a floating po
 void SMacEps(){
 float x=1.0;
 float x0=1.0;
-int Sn=0;
-while ((1+x0) != 1){
-x0=x;
+while ((x+x0) != 1){
 x=x/2;
-Sn++;
 }
-cout << "The machine epsilon for floating point number system is " << x0 << endl;
+cout << "The machine epsilon for floating point number system is " << x << endl;
 }
 ```
 
