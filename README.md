@@ -81,5 +81,3 @@ A root of the function can be found at 0
 Last Modification Date:
 Sep. 14, 2017
 
-Author:
-Nitasha Jeske
