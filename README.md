@@ -1,6 +1,6 @@
 # Computational Mathematics Software Manual
 
-## **Routine Name** Bisection Method
+## **Routine Name:** Bisection Method
 
 **Author:** Nitasha Jeske
 
@@ -72,12 +72,11 @@ return c;
 }
 ```
 
-And the output is as follows: 
+**And the output is as follows:**  
 Unbounded intervals can be represented with suffiiciently large numbers.
 A root of the function can be found at 5.02655
 A root of the function can be found at 0
 
-
-Last Modification Date:
+**Last Modification Date:**
 Sep. 14, 2017
 
