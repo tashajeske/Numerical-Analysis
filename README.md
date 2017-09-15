@@ -29,7 +29,7 @@ cout<< "Unbounded intervals can be represented with suffiiciently large numbers.
 cout<< bisection(0, 7, "f1", .000000000001, 1000000000) << endl;
 cout<< bisection(-100, 100, "f2", .000000000001, 1000000000) << endl;
 }
-``
+```
 
 **Code:**
 ```C++
