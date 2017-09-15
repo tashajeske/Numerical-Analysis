@@ -1,12 +1,35 @@
 # Computational Mathematics Software Manual
 
-## **NAME:** Bisection Method
+## **Routine Name** Bisection Method
+
+**Author:** Nitasha Jeske
+
+**Language:** C++
 
 **Description:** This routine uses the intermediate value theorem to determine if there is a root on the given interval. if so it can approximate the root by dividing the interval in half until a pre-determined maximum number of iterations or tolerance is met. 
 
 **Input:** The inputs for this program are double a, double b, string f, double tol and int maxIter. a and b are the left and right bounds for the interval, respectively. The string f represents which function will be used to determine roots, as long as the function is declared and defined. Double tol is a measure of accuracy of the root, and int maxIter sets a maximum number of iterations for the interval to be divided if the tolerance is not met first. 
 
 **Output:** The program will provide the first root it finds in the function on the interval, or print an error message telling the user to input a valid function or different interval. 
+
+**Example:**
+```C++
+double func(string f, double x){
+if (f == "f1") {
+double y=3*x*sin(10*x); // looking for interval [0, 7]
+return y;
+}
+else if (f=="f2"){ // looking for interval (-infinity, + infinity)
+double y=x*exp(-x);
+return y;
+}
+
+int main (){
+cout<< "Unbounded intervals can be represented with suffiiciently large numbers." << endl;
+cout<< bisection(0, 7, "f1", .000000000001, 1000000000) << endl;
+cout<< bisection(-100, 100, "f2", .000000000001, 1000000000) << endl;
+}
+``
 
 **Code:**
 ```C++
@@ -49,24 +72,6 @@ return c;
 }
 ```
 
-**Example:**
-```C++
-double func(string f, double x){
-if (f == "f1") {
-double y=3*x*sin(10*x); // looking for interval [0, 7]
-return y;
-}
-else if (f=="f2"){ // looking for interval (-infinity, + infinity)
-double y=x*exp(-x);
-return y;
-}
-
-int main (){
-cout<< "Unbounded intervals can be represented with suffiiciently large numbers." << endl;
-cout<< bisection(0, 7, "f1", .000000000001, 1000000000) << endl;
-cout<< bisection(-100, 100, "f2", .000000000001, 1000000000) << endl;
-}
-``
 And the output is as follows: 
 Unbounded intervals can be represented with suffiiciently large numbers.
 A root of the function can be found at 5.02655
