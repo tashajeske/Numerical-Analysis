@@ -6,7 +6,7 @@
 
 **Language:** C++
 
-**Description:** This routine will approximate the root of a function when given a valid estimate for the root. It uses convergence of a sequence to evaluate the root. A function g is picked such that since f(x)=0, g(x)=x. Then the routine iterates through increasingly closer values of x0 to find the 
+**Description:** This routine will approximate the root of a function when given a valid estimate for the root. It uses convergence of a sequence to evaluate. A function g is picked such that g(x)=x. Then the routine iterates through increasingly closer values of x0 to find an approximation to the root. 
 
 **Input:** The inputs for this program are double x0, string f, double tol, and int maxIter. x0 is the initial guess of the root. f is which function is being used as long as the fucntion is defined in func(). tol is the level of accuracy. maxIter is a maximum number of iterations the routine will run through 
 
