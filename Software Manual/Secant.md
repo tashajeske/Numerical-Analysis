@@ -17,13 +17,10 @@
 // functions for approximating roots. use a string to identify which function is called
 double func (double x, string f){
 if (f=="f1") return x*exp(-x);
-else if (f=="f2") return 3*x*sin(10*x);
 else if (f=="df1") return exp(-x)-x*exp(-x);
-else if (f=="df2") return 3*sin(10*x)+30*x*cos(10*x);
 else return EXIT_SUCCESS;}
 int main(){
-cout<< "Secant approximation to the root is: " << secant(0.5, .45, "f1", .0001, 10) <<endl;
-}
+cout<< "Secant approximation to the root is: " << secant(0.5, .45, "f1", .0001, 10) <<endl;}
 ```
 
 **Code:**
