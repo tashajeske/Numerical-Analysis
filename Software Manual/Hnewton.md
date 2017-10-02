@@ -1,6 +1,6 @@
 # Computational Mathematics Software Manual
 
-## **Routine Name:** HNewton
+## **Routine Name:** Hnewton
 
 **Author:** Nitasha Jeske
 
