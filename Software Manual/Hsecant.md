@@ -1,6 +1,6 @@
 # Computational Mathematics Software Manual
 
-## **Routine Name:** HSecant
+## **Routine Name:** Hsecant
 
 **Author:** Nitasha Jeske
 
