@@ -18,10 +18,8 @@
 double func (double x, string f){
 if (f=="f1") return x*exp(-x);
 else if (f=="f2") return 3*x*sin(10*x);
-else if (f=="f3") return x*cos(10*x);
 else if (f=="df1") return exp(-x)-x*exp(-x);
 else if (f=="df2") return 3*sin(10*x)+30*x*cos(10*x);
-else if (f=="df3")return cos(10*x)-10*x*sin(10*x);
 else return EXIT_SUCCESS;}
 int main(){
 cout<< "Newton's approximation to the root is: " << newton(1.0, "f1", "df1", .0001, 10)<<endl;
