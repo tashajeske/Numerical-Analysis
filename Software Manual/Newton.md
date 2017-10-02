@@ -30,7 +30,6 @@ double dy= 3*sin(10*x)+30*x*cos(10*x);
 return dy;}
 else return EXIT_SUCCESS;
 }
-
 int main(){
 cout<< "Newton's approximation to the root is: " << newton(1.0, "f1", "df1", .0001, 10)<<endl;
 cout<< "Newton's approximation to the root is: " << newton(0.5, "f1", "df1", .0001, 10)<<endl;
