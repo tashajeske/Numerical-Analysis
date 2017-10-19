@@ -12,7 +12,7 @@
 
 **Output:** The routine provides a vector of type double with the dimensions: rows of matrix x 1, and prints out the time it takes to compute the vector.
 
-**Examplet:**
+**Example:**
 ```C++
 int main(){
 typedef vector <vector <double>> Matrix;

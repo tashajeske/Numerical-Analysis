@@ -12,7 +12,7 @@
 
 **Output:** The routine provides a vector of vector of doubles which has the dot product values as the entries, and prints out the time it takes to compute the resulting matrix.
 
-**Examplet:**
+**Example:**
 ```C++
 int main(){
 typedef vector <vector <double>> Matrix;
