@@ -12,7 +12,7 @@
 
 **Output:** The routine provides a matrix, or vector of vector of doubles which contains the L matrix as the entries below the diagonal, and the U matrix as the diagonal and entries above the diagonal. 
 
-**Examplet:**
+**Example:**
 ```C++
 int main(){
 typedef vector <vector <double>> Matrix;
