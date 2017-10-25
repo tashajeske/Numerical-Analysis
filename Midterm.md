@@ -310,6 +310,36 @@ The functions bisect and hnewton are described further in software manual entrie
 It was a bit more challenging to find the globabl minimum of the second function because the function value does not exist at x=0 which is where the global minimum is located. In order for the computer to calculate this value I found the limit and entered the function as a piecewise function. Then I used the Taylor series expansion for the function to find the derivative and second derivative of the function. 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Problem 2:**  Chapter 4: Exercise 5 and 7
 
 
