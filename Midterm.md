@@ -310,12 +310,61 @@ The functions bisect and hnewton are described further in software manual entrie
 It was a bit more challenging to find the globabl minimum of the second function because the function value does not exist at x=0 which is where the global minimum is located. In order for the computer to calculate this value I found the limit and entered the function as a piecewise function. Then I used the Taylor series expansion for the function to find the derivative and second derivative of the function. 
 
 
-/newpage
+
 
 
 **Problem 2:**  Chapter 4: Exercise 5 and 7
 
+Below is a counterexample for the statement. The routines, Mnorm1 and MnormInf, are used to compute the norms for a matrix A. The software manual entries for these routines can be found at: https: //github.com/tashajeske/Numerical-Analysis/blob/master/Software%20Manual/Table%20of%20Contents.md
 
+```C++
+double Mnorm1 (vector<vector<double>> matrix){
+double norm=0.0;
+for (int i=0; i<matrix.size(); i++){
+double sum=0.0;
+for (int j=0; j< matrix[i].size(); j++){
+sum+=abs(matrix[j][i]);
+}
+if (sum > norm) norm = sum;
+}
+return norm;
+}
+
+
+
+double MnormInf (vector<vector<double>> matrix){
+double norm=0.0;
+for (int i=0; i<matrix.size(); i++){
+double sum=0.0;
+for (int j=0; j< matrix[i].size(); j++){
+sum+=abs(matrix[i][j]);
+}
+if (sum > norm) norm = sum;
+}
+return norm;
+}
+
+int main(){
+cout<< pow(Mnorm1({{1,2},{3,4}}),-1) << endl;
+// 1 Norm of A^-1
+cout << Mnorm1({{-2, 1}, {1.5, -.5}}) << endl;
+// Inf Norm of A
+cout << pow(MnormInf({{1,2},{3,4}}), -1) << endl;
+// Inf Norm of A
+cout << MnormInf({{-2, 1}, {1.5, -.5}}) << endl;
+}
+```
+
+The output to the code is:
+
+```C++
+0.166667
+3.5
+0.142857
+3
+```
+
+Clearly, 0.166667 &neq; 3.5 and 0.142857 &neq; 3. Thus, we have found a counterexample for the statement proving it to be false. An analytical proof can be found on the next page. 
 
 **Problem 3:**  Chapter 5: Exercise 2
 
