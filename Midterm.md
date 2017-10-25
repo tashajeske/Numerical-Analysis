@@ -174,7 +174,7 @@ print(gm, glomin);
 cout<< "The value of the global min(s) is " << func(glomin[0], f) << endl;
 }
 ```
-The code is tested on two examples (a) &phi(x)=sin(x) and (b) &phi(x)=-sin(x)/x
+The code is tested on two examples (a) &phi;(x)=sin(x) and (b) &phi;(x)=-sin(x)/x
 
 
 
