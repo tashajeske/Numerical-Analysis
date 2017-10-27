@@ -25,20 +25,7 @@ return x;
 }
 ```
 
-Below the program is tested on a matrix given in exercise 17 with an invented vector b.
 
-```C++
-void Printx(vector <double> vec1){
-for (int i=0; i<vec1.size(); i++){
-cout<< "x" << i << " = " << vec1[i] << endl;
-}
-cout << endl;
-}
-int main(){
-Printx(tridiag({-1, -2, -3, -4, -5, -6, -7, -8, -9}, {3,6,9,12,15,18,21,24,27,30}, 
-{-1, -2, -3, -4, -5, -6, -7, -8, -9}, {1,2,3,4,5,6,7,8,9,10}));
-}
-```
 
 The output is below. 
 
