@@ -16,8 +16,6 @@ if (sum > norm) norm = sum;
 return norm;
 }
 
-
-
 double MnormInf (vector<vector<double>> matrix){
 double norm=0.0;
 for (int i=0; i<matrix.size(); i++){
