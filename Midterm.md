@@ -179,7 +179,6 @@ cout<< "The value of the global min(s) is " << func(glomin[0], f) << endl;
 The code is tested on two examples (a) &phi;(x)=sin(x) and (b) &phi;(x)=-sin(x)/x
 
 ```C++
-int main(){
 double func (double x, string f){
 if (f=="f1") return sin(x);
 else if (f=="f2") {
@@ -201,6 +200,8 @@ else return sin(x)/x+2*cos(x)/pow(x,2)-2*sin(x)/pow(x,3);
 }
 else return EXIT_SUCCESS;
 }
+
+int main(){
 // need to pass in interval, pass in which function, pass in tolerance, and a max number of iterations
 vector<double> bisect (double a, double b, string f){
 // find the values of function at interval end points
@@ -315,7 +316,7 @@ It was a bit more challenging to find the globabl minimum of the second function
 
 **Problem 2:**  Chapter 4: Exercise 5 and 7
 
-Below is a counterexample for the statement. The routines, Mnorm1 and MnormInf, are used to compute the norms for a matrix A. The software manual entries for these routines can be found at: https: //github.com/tashajeske/Numerical-Analysis/blob/master/Software%20Manual/Table%20of%20Contents.md
+Below is a counterexample for the statement in exercise 5. The routines, Mnorm1 and MnormInf, are used to compute the norms for a matrix A. The software manual entries for these routines can be found at: https: //github.com/tashajeske/Numerical-Analysis/blob/master/Software%20Manual/Table%20of%20Contents.md
 
 ```C++
 double Mnorm1 (vector<vector<double>> matrix){
@@ -364,10 +365,8 @@ The output to the code is:
 3
 ```
 
-Clearly, 0.166667 &neq; 3.5 and 0.142857 &neq; 3. Thus, we have found a counterexample for the statement proving it to be false. An analytical proof can be found on the next page. 
+Clearly, 0.166667 is not equal to 3.5 and 0.142857 is not equal to 3. Thus, we have found a counterexample for the statement proving it to be false. An analytical proof can be found on the next page. 
 
-**Problem 3:**  Chapter 5: Exercise 2
 
-**Problem 4:**  Chapter 5: Exercise 17 and 18
 
 
