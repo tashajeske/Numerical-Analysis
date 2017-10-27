@@ -41,4 +41,5 @@ return norm;
 ```
 
 **Last Modification Date:**
+
 Oct. 3, 2017
