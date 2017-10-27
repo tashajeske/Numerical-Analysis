@@ -2,20 +2,11 @@
 
 ### Nitasha Jeske
 
-
 **Problem 1:**  Chapter 3: Exercise 21 and 23
 
-The program below minimizes a smooth curve when the function, derivative, second derivative, the interval from a to b, the number of times to divide the interval into subintervals, a tolerance, and the max number of iterations. 
+The program below minimizes a smooth curve when the function, derivative, second derivative, the interval from a to b, the number of times to divide the interval into subintervals, a tolerance, and the max number of iterations are all passed in as arguments. 
 
 ```C++
-
-void print(string a, vector <double> vec){
-cout<< a;
-for(int i=0; i<vec.size();i++){
-cout << vec[i] << ", ";
-}
-cout<< endl;
-}
 // a and b are full interval for desired roots, f, df, and d2f identify which function and derivatives in the func function, nprobe is the number of times we will check the function for sign changes to guarantee root through bisection
 void allnewton(double a, double b, string f, string df, string d2f, int nprobe, double tol, int maxIter){
 // find length of given interval
@@ -51,6 +42,8 @@ print(lm, locmin);
 
 // need to find global minimum and the value associated with it
 vector <double> glomin={locmin[0]};
+// go through the values and replace the existing value with the least value, if multiple exist 
+// with the same value push those back onto it as well
 for (int i=1; i<locmin.size(); i++){
 if (func(locmin[i], f)==func(glomin[0],f))
 glomin.push_back(locmin[i]);
@@ -194,66 +187,24 @@ allhnewton(-10, 10, "f1", "df1", "d2f1", 6, .0001, 10);
 allhnewton(-10, 10, "f2", "df2", "d2f2", 5, .0001, 10);
 }
 ```
+
+The output is below.
+
+```C++
+The critical points of the function are: -7.85398, -4.71239, -1.5708, 1.5708, 4.71239, 7.85398, 
+The local minima of the function are at x= -7.85398, -1.5708, 4.71239, 
+The global min(s) is/are at x= -7.85398, -1.5708, 4.71239, 
+The value of the global min(s) is -1
+The critical points of the function are: -7.72525, -4.49341, 0, 4.49341, 7.72525, 
+The local minima of the function are at x= -7.72525, 0, 7.72525, 
+The global min(s) is/are at x= 0, 
+The value of the global min(s) is -1
+```
+
 The functions bisect and hnewton have been taken from a previous homework assingment and slightly altered to fit to this program. Descriptions and examples of these routines can be found in the software manuals entries attached at the end of this problem. 
 
 It was a bit more challenging to find the globabl minimum of the second function because the function value does not exist at x=0 which is where the global minimum is located. In order for the computer to calculate this value I found the limit and entered the function as a piecewise function. Then I used the Taylor series expansion for the function to find the derivative and second derivative of the function. 
 
-
-
-
-
-**Problem 2:**  Chapter 4: Exercise 5 and 7
-
-Below is a counterexample for the statement in exercise 5. The routines, Mnorm1 and MnormInf, are used to compute the norms for a matrix A. The software manual entries for these routines can be found at: https: //github.com/tashajeske/Numerical-Analysis/blob/master/Software%20Manual/Table%20of%20Contents.md
-
-```C++
-double Mnorm1 (vector<vector<double>> matrix){
-double norm=0.0;
-for (int i=0; i<matrix.size(); i++){
-double sum=0.0;
-for (int j=0; j< matrix[i].size(); j++){
-sum+=abs(matrix[j][i]);
-}
-if (sum > norm) norm = sum;
-}
-return norm;
-}
-
-
-
-double MnormInf (vector<vector<double>> matrix){
-double norm=0.0;
-for (int i=0; i<matrix.size(); i++){
-double sum=0.0;
-for (int j=0; j< matrix[i].size(); j++){
-sum+=abs(matrix[i][j]);
-}
-if (sum > norm) norm = sum;
-}
-return norm;
-}
-
-int main(){
-cout<< pow(Mnorm1({{1,2},{3,4}}),-1) << endl;
-// 1 Norm of A^-1
-cout << Mnorm1({{-2, 1}, {1.5, -.5}}) << endl;
-// Inf Norm of A
-cout << pow(MnormInf({{1,2},{3,4}}), -1) << endl;
-// Inf Norm of A
-cout << MnormInf({{-2, 1}, {1.5, -.5}}) << endl;
-}
-```
-
-The output to the code is:
-
-```C++
-0.166667
-3.5
-0.142857
-3
-```
-
-Clearly, 0.166667 is not equal to 3.5 and 0.142857 is not equal to 3. Thus, we have found a counterexample for the statement proving it to be false. An analytical proof can be found on the next page. 
 
 
 
