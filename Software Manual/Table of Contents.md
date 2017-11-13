@@ -40,5 +40,5 @@
 1. [Jacobi](./Jacobi.md)
 2. [Gauss-Seidel](./GaussSeidel.md)
 3. [Steepest Descent](./SteepDes.md)
-4. [Conjugate Gradient](.ConjGrad.md)
+4. [Conjugate Gradient](./ConjGrad.md)
 
