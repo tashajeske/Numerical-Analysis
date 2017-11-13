@@ -29,9 +29,16 @@
 13. [Matrix-Vector Multiplication](./matrixvec.md)
 14. [Matrix-Matrix Multiplication](./matrixmatrix.md)
 
-### Open MP 
+### Open MP Linear Algebra Computations
 1. [Matrix-Vector Multiplication](./OMPmatrixvec.md)
 2. [Matrix-Matrix Multiplication](./OMPmatrixmatrix.md)
 
-### Solve Linear Systems
+### Solve Linear Systems: Direct Methods
 1. [LU Factorization](lufactor.md)
+
+### Solve Linear Systems: Iterative Methods
+1. [Jacobi](./Jacobi.md)
+2. [Gauss-Seidel](./GaussSeidel.md)
+3. [Steepest Descent](./SteepDes.md)
+4. [Conjugate Gradient](.ConjGrad.md)
+
