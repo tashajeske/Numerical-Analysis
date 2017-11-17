@@ -29,7 +29,7 @@
 13. [Matrix-Vector Multiplication](./matrixvec.md)
 14. [Matrix-Matrix Multiplication](./matrixmatrix.md)
 
-### Open MP Linear Algebra Computations
+### Linear Algebra Computations Using Open MP
 1. [Matrix-Vector Multiplication](./OMPmatrixvec.md)
 2. [Matrix-Matrix Multiplication](./OMPmatrixmatrix.md)
 
@@ -42,3 +42,8 @@
 3. [Steepest Descent](./SteepDes.md)
 4. [Conjugate Gradient](./ConjGrad.md)
 
+### Solve Linear Systems: Iterative Methods Using Open MP
+1. [Jacobi](./OMPJacobi.md)
+2. [Gauss-Seidel](./OMPGaussSeidel.md)
+3. [Steepest Descent](./OMPSteepDes.md)
+4. [Conjugate Gradient](./OMPConjGrad.md)
