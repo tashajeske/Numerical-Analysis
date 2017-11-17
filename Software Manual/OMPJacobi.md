@@ -42,7 +42,7 @@ int main(){
     for(int i=0; i<n; i++){
         x0[i]=rand()%100/100.0;
     }
-    Jacobi(A, b, x0, .001, 1000);
+    OMPJacobi(A, b, x0, .001, 1000);
 }
 ```
 
