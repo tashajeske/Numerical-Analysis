@@ -1,6 +1,6 @@
 # Computational Mathematics Software Manual
 
-## **Routine Name:** OMPGauss-Seidel
+## **Routine Name:** OMPGaussSeidel
 
 **Author:** Nitasha Jeske
 
