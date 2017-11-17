@@ -61,39 +61,39 @@ Vec OMPJacobi(Matrix A, Vec b, Vec x0, float tol, int maxIter){
     int cnt=0;
     // when error is still greater than tolerance and count is less than max iterations
     // the the loop will go and find closer approximations to the system Ax=b
-    while (error > tol && cnt <maxIter){
-    # pragma omp parallel for
-    // nested for loop to calculate b-(L+U)x
-    for (int i=0; i<n; i++){
-        double temp=0.0;
-        // calculate Lx
-        for (int j=0; j<i; j++){
-            temp+=A[i][j]*x0[j];
+        while (error > tol && cnt <maxIter){
+        # pragma omp parallel for
+        // nested for loop to calculate b-(L+U)x
+        for (int i=0; i<n; i++){
+            double temp=0.0;
+            // calculate Lx
+            for (int j=0; j<i; j++){
+                temp+=A[i][j]*x0[j];
+            }
+            // subtract Lx from b and do action of D^-1
+            x1[i]=(b[i]-temp)/A[i][i];
+            // calculate Ux
+            for (int j=i+1; j<n; j++){
+                temp+=A[i][j]*x0[j];
+            }
+            // subtract Ux from b and do action of D^-1
+            x1[i]=(b[i]-temp)/A[i][i];
         }
-        // subtract Lx from b and do action of D^-1
-        x1[i]=(b[i]-temp)/A[i][i];
-        // calculate Ux
-        for (int j=i+1; j<n; j++){
-            temp+=A[i][j]*x0[j];
+        // initialize a temp variable sum to be zero
+        double sum=0.0;
+        # pragma omp parallel for
+        // this loop sets up the L2 norm
+        for (int i=0; i<n; i++){
+            //find the absolute value difference between vectors at each entry
+            double diff=abs(x1[i]-x0[i]);
+            // add up these differences
+            sum=sum+diff*diff;
         }
-        // subtract Ux from b and do action of D^-1
-        x1[i]=(b[i]-temp)/A[i][i];
-    }
-    // initialize a temp variable sum to be zero
-    double sum=0.0;
-    # pragma omp parallel for
-    // this loop sets up the L2 norm
-    for (int i=0; i<n; i++){
-        //find the absolute value difference between vectors at each entry
-        double diff=abs(x1[i]-x0[i]);
-        // add up these differences
-        sum=sum+diff*diff;
-    }
-    // take the square root for the error or L2 norm
-    error=sqrt(sum);
-    // update the old x vector to be the new x vector
-    x0=x1;
-    cnt++;
+        // take the square root for the error or L2 norm
+        error=sqrt(sum);
+        // update the old x vector to be the new x vector
+        x0=x1;
+        cnt++;
     }
     auto end = chrono::high_resolution_clock::now();
     time1 = end-start;
