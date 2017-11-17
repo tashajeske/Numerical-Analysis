@@ -1,16 +1,18 @@
 # Computational Mathematics Software Manual
 
-## **Routine Name:** GaussSeidel
+## **Routine Name:** OMPGauss-Seidel
 
 **Author:** Nitasha Jeske
 
 **Language:** C++
 
-**Description:** Gauss-Seidel is an iterative method to solve a linear system of equations, Ax=b. Using the properties of linear algebra, this algorithm calculates (D+U)^-1(b-Lx) and uses the 2 norm to calculate an error, then iterates until it reaches the desired tolerance or hits a maximum number of iterations. 
+**Description:** Gauss-Seidel is an iterative method to solve a linear system of equations, Ax=b. Using the properties of linear algebra, this algorithm calculates (D+U)^-1(b-Lx) and uses the 2 norm to calculate an error, then iterates until it reaches the desired tolerance or hits a maximum number of iterations. This routine is coded to run in Open MP on multiple processors in order to speed up the computing time. 
+
 
 **Input:**  The input is a symmetric positive definite matrix of size n x n (A), a resulting vector of size n (b), an initial guess vector of size n (x0), a tolerance, and maximum number of iterations.
 
-**Output:** The algorithm returns a vector, which is the approximate solution.
+**Output:** The algorithm returns a vector, which is the approximate solution, and prints out the number of iterations and the time it takes to compute the resulting vector.
+
 
 **Example:**
 
@@ -41,13 +43,15 @@ int main(){
     for(int i=0; i<n; i++){
         x0[i]=rand()%100/100.0;
     }
-    GaussSeidel(A, b, x0, .001, 1000);
+    OMPGaussSeidel(A, b, x0, .001, 1000);
 }
 ```
 
 **Code:**
 ```C++
-Vec GaussSeidel(Matrix A, Vec b, Vec x0, float tol, int maxIter){
+    Vec OMPGaussSeidel(Matrix A, Vec b, Vec x0, float tol, int maxIter){
+    chrono::duration<double> time1;
+    auto start = chrono::high_resolution_clock::now();
     // let n count the rows in matrix A
     int n=(int)A.size();
     // initialize a vector of size n to be all zeros
@@ -60,6 +64,7 @@ Vec GaussSeidel(Matrix A, Vec b, Vec x0, float tol, int maxIter){
     // the the loop will go and find closer approximations to the system Ax=b
     while (error > tol && cnt <maxIter){
         // loop to calculate b-Lx
+        # pragma omp parallel for
         for (int i=0; i<n; i++){
             // initialize temp variable for calculation
             double temp=0.0;
@@ -71,6 +76,7 @@ Vec GaussSeidel(Matrix A, Vec b, Vec x0, float tol, int maxIter){
             x1[i]=b[i]-temp;
         }
         // loop to calculate action of (D+U)^-1 (backward substitution)
+        # pragma omp parallel for
         for (int i=n-1; i>= 0; i--){
             // initialize a temp variable to be zero
             double temp2=0.0;
@@ -82,6 +88,7 @@ Vec GaussSeidel(Matrix A, Vec b, Vec x0, float tol, int maxIter){
         // initialize a temp variable sum to be zero
         double sum=0.0;
         // this loop sets up the L2 norm
+        # pragma omp parallel for
         for (int i=0; i<n; i++){
             //find the absolute value differnce between vectors at each entry
             double diff=abs(x1[i]-x0[i]);
@@ -94,6 +101,9 @@ Vec GaussSeidel(Matrix A, Vec b, Vec x0, float tol, int maxIter){
         x0=x1;
         cnt++;
     }
+    auto end = chrono::high_resolution_clock::now();
+    time1 = end-start;
+    cout<<"Time: " <<time1.count() <<endl;
     cout << "k = " << cnt << endl;
     return x0;
 }
@@ -101,8 +111,9 @@ Vec GaussSeidel(Matrix A, Vec b, Vec x0, float tol, int maxIter){
 
 **And the output is as follows:**  
 ```
-k = 11
+Time: 0.240247
+k = 373
 ```
 
 **Last Modification Date:**
-Nov. 12, 2017
+Nov. 16, 2017
