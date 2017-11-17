@@ -17,32 +17,32 @@
 
 ```C++
 int main(){
-typedef vector <vector <double>> Matrix;
-typedef vector <double> Vec;
-int n=1000;
-// initialize a symmetric positive definite matrix
-Matrix A(n, Vec(n));
-for (int i=0; i<n;i++){
-// make the diagonals random but add the number of rows to the matrix to make sure it is diagonally dominant
-A[i][i]=rand()%100/100.0+500;
-for (int j=0; j<i; j++){
-// create random entries for the lower diagonal
-A[i][j]=rand()%100/100.0;
-// set the corresponding transpose entries equal so that it is symmetric
-A[j][i]=A[i][j];
-}
-}
-// initialize a vector b of random numbers between 0 and 1
-Vec b(n);
-for (int i=0; i<n; i++){
-b[i]=rand()%100/100.0;
-}
-// initialize a vector x0 of random numbers between 0 and 1
-Vec x0(n);
-for(int i=0; i<n; i++){
-x0[i]=rand()%100/100.0;
-}
-OMPSteepDes(A, b, x0, .001, 1000);
+    typedef vector <vector <double>> Matrix;
+    typedef vector <double> Vec;
+    int n=1000;
+    // initialize a symmetric positive definite matrix
+    Matrix A(n, Vec(n));
+    for (int i=0; i<n;i++){
+        // make the diagonals random but add the number of rows to the matrix to make sure it is diagonally dominant
+        A[i][i]=rand()%100/100.0+500;
+        for (int j=0; j<i; j++){
+            // create random entries for the lower diagonal
+            A[i][j]=rand()%100/100.0;
+            // set the corresponding transpose entries equal so that it is symmetric
+            A[j][i]=A[i][j];
+        }
+    }
+    // initialize a vector b of random numbers between 0 and 1
+    Vec b(n);
+    for (int i=0; i<n; i++){
+        b[i]=rand()%100/100.0;
+    }
+    // initialize a vector x0 of random numbers between 0 and 1
+    Vec x0(n);
+    for(int i=0; i<n; i++){
+        x0[i]=rand()%100/100.0;
+    }
+    OMPSteepDes(A, b, x0, .001, 1000);
 }
 ```
 
