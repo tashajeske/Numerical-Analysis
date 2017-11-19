@@ -25,7 +25,7 @@ int main(){
     Matrix A(n, Vec(n));
     for (int i=0; i<n;i++){
         // make the diagonals random but add the number of rows to the matrix to make sure it is diagonally dominant
-        A[i][i]=rand()%100/100.0+500;
+        A[i][i]=rand()%100/100.0+1000;
         for (int j=0; j<i; j++){
             // create random entries for the lower diagonal
             A[i][j]=rand()%100/100.0;
@@ -76,7 +76,6 @@ int main(){
             x1[i]=b[i]-temp;
         }
         // loop to calculate action of (D+U)^-1 (backward substitution)
-        # pragma omp parallel for
         for (int i=n-1; i>= 0; i--){
             // initialize a temp variable to be zero
             double temp2=0.0;
@@ -88,7 +87,6 @@ int main(){
         // initialize a temp variable sum to be zero
         double sum=0.0;
         // this loop sets up the L2 norm
-        # pragma omp parallel for
         for (int i=0; i<n; i++){
             //find the absolute value differnce between vectors at each entry
             double diff=abs(x1[i]-x0[i]);
@@ -111,8 +109,8 @@ int main(){
 
 **And the output is as follows:**  
 ```
-Time: 0.240247
-k = 373
+Time: 0.0061
+k = 6
 ```
 
 **Last Modification Date:**

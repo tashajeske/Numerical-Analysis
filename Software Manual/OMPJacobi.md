@@ -24,7 +24,7 @@ int main(){
     Matrix A(n, Vec(n));
     for (int i=0; i<n;i++){
         // make the diagonals random but add the number of rows to the matrix to make sure it is diagonally dominant
-        A[i][i]=rand()%100/100.0+500;
+        A[i][i]=rand()%100/100.0+1000;
         for (int j=0; j<i; j++){
             // create random entries for the lower diagonal
             A[i][j]=rand()%100/100.0;
@@ -105,7 +105,7 @@ Vec OMPJacobi(Matrix A, Vec b, Vec x0, float tol, int maxIter){
 
 **And the output is as follows:**  
 ```
-Time: 0.00799
+Time: 0.008519
 k = 16
 ```
 

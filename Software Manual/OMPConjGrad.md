@@ -24,7 +24,7 @@ int main(){
     Matrix A(n, Vec(n));
     for (int i=0; i<n;i++){
         // make the diagonals random but add the number of rows to the matrix to make sure it is diagonally dominant
-        A[i][i]=rand()%100/100.0+500;
+        A[i][i]=rand()%100/100.0+1000;
         for (int j=0; j<i; j++){
             // create random entries for the lower diagonal
             A[i][j]=rand()%100/100.0;
@@ -67,13 +67,11 @@ Vec OMPConjGrad(Matrix A,Vec b, Vec x0, float tol, int maxIter){
     }
     // initialize delta0 to be r0^Tr0 or the dot product of r0 and r0
     double delta0=0.0;
-    # pragma omp parallel for
     for (int i=0; i<n; i++){
         delta0=delta0+r0[i]*r0[i];
     }
     // initialize b_delta to be b^Tb or the dot product of b and b
     double b_delta=0.0;
-    # pragma omp parallel for
     for (int i=0; i<n; i++){
         b_delta=b_delta+b[i]*b[i];
     }
@@ -95,31 +93,26 @@ Vec OMPConjGrad(Matrix A,Vec b, Vec x0, float tol, int maxIter){
         }
         // initialize alpha_k to be delta0 divided by the dot product of p0 and s_k
         float dotp0=0.0;
-        # pragma omp parallel for
         for (int i=0; i<n; i++){
             dotp0=dotp0+p0[i]*s_k[i];
         }
         float alpha_k=delta0/dotp0;
         // new guess will be old guess added to p0 scaled by alpha_k
-        # pragma omp parallel for
         for (int i=0; i<n;i++){
             x1[i]=x0[i]+p0[i]*alpha_k;
         }
         // calculate new residual
-        # pragma omp parallel for
         for (int i=0; i<n;i++){
             r0[i]=r0[i]-s_k[i]*alpha_k;
         }
         // initialize new delta to be dot product of new residuals
         double delta1=0.0;
-        # pragma omp parallel for
         for (int i=0; i<n; i++){
             delta1=delta1+r0[i]*r0[i];
         }
         // initialize a scalar to be ratio of new/old delta
         float scalar=delta1/delta0;
         // update p0 based on new residual and calculated scalar
-        # pragma omp parallel for
         for (int i=0; i<n;i++){
             p0[i]=r0[i]+p0[i]*scalar;
         }
@@ -141,8 +134,8 @@ Vec OMPConjGrad(Matrix A,Vec b, Vec x0, float tol, int maxIter){
 
 **And the output is as follows:**  
 ```
-Time: 0.440818
-k = 1000
+Time: 0.002526
+k = 4
 ```
 
 **Last Modification Date:**
