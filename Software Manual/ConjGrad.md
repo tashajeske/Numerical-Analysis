@@ -93,7 +93,7 @@ Vec ConjGrad(Matrix A,Vec b, Vec x0, float tol, int maxIter){
     float b_delta=dotprod(b,b);
     // initialize counter k
     int k=0;
-    / take p0 to be the current residual
+    // take p0 to be the current residual
     Vec p0=r0;
     // this condition is for the while loop, since it won't be updated in the loop, I will just calculate it once
     double condition=tol*tol*b_delta;

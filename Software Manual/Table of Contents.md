@@ -47,3 +47,11 @@
 2. [Gauss-Seidel](./OMPGaussSeidel.md)
 3. [Steepest Descent](./OMPSteepDes.md)
 4. [Conjugate Gradient](./OMPConjGrad.md)
+
+### Eigenvalue Methods
+1. [Power Method](./PowerM.md)
+2. [Inverse Power Method](./invPowerM.md)
+
+### Eigenvalue Methods using Open MP
+1. [Power Method](./OMPPowerM.md)
+2. [Inverse Power Method](./OMPinvPowerM.md)
