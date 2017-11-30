@@ -8,9 +8,9 @@
 
 **Description:** The Polynomial Interpolation routine will evaluate the polynomial found using Newton's method at a point that does not exist in the data set. It does this by calling the Divided Differnce Table function to calculate the coefficients of the polynomial and then interpolating to points not in the data set. 
 
-**Input:**  Two vectors x and y representing the data set are inputs to the function.
+**Input:**  Two vectors x and y representing the data set are inputs to the function and a point at which to iterpolate of type double.
 
-**Output:**  The output is a vector with the coefficients of the polynomial.
+**Output:**  The outpute is a double which represents the value of the function evaluated at the given point.
 
 **Example:**
 
