@@ -57,5 +57,5 @@
 2. [Inverse Power Method](./OMPinvPowerM.md)
 
 ### Polynomial Interpolation
-1. [Divided Difference Table](./DividedDiffTable)
-2. [Polynomial Interpolation](./PolyInterp)
+1. [Divided Difference Table](./DividedDiffTable.md)
+2. [Polynomial Interpolation](./PolyInterp.md)
