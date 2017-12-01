@@ -58,4 +58,4 @@
 
 ### Polynomial Interpolation
 1. [Divided Difference Table](./DividedDiffTable)
-2. [Polynomial Interpolation]](./PolyInterp)
+2. [Polynomial Interpolation](./PolyInterp)
