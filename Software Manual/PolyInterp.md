@@ -72,8 +72,15 @@ double PolyInterp (Vec x, Vec y, double t){
 
 **And the output is as follows:**  
 ```
-1  2  -0.666667
-0.0384615  0.153846  0.432692  -0.707799  0.5441 
+2.16667
+0.367434
+0.281977
+0.145905
+0.0769302
+0.00540817
+3.79562e+17
+6.0031e+73
+2.18019e+173
 ```
 
 **Last Modification Date:**
