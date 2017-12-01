@@ -158,7 +158,7 @@ double invPowerM (Matrix A, Vec v0, double tol, int maxIter){
 
 **And the output is as follows:**  
 ```
-0.072212
+0.559576
 501.713
 ```
 
