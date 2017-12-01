@@ -55,3 +55,7 @@
 ### Eigenvalue Methods using Open MP
 1. [Power Method](./OMPPowerM.md)
 2. [Inverse Power Method](./OMPinvPowerM.md)
+
+### Polynomial Interpolation
+1. [Divided Difference Table](./DividedDiffTable)
+2. [Polynomial Interpolation]](./PolyInterp)
