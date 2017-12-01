@@ -10,7 +10,7 @@
 
 **Input:**  The input is a symmetric positive definite matrix of size n x n (A), an initial guess at the eigenvector of size n (v0), a tolerance, and maximum number of iterations.
 
-**Output:** The algorithm returns the largest in absolute value of the eigenvalues. 
+**Output:** The algorithm prints the time it takes to run and then returns the largest in absolute value of the eigenvalues. 
 
 **Example:**
 
@@ -158,6 +158,7 @@ double invPowerM (Matrix A, Vec v0, double tol, int maxIter){
 
 **And the output is as follows:**  
 ```
+0.072212
 501.713
 ```
 

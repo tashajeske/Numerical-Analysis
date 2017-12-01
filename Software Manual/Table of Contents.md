@@ -59,3 +59,5 @@
 ### Polynomial Interpolation
 1. [Divided Difference Table](./DividedDiffTable.md)
 2. [Polynomial Interpolation](./PolyInterp.md)
+
+### Just work please!!
