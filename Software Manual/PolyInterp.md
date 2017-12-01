@@ -10,7 +10,7 @@
 
 **Input:**  Two vectors x and y representing the data set are inputs to the function and a point at which to iterpolate of type double.
 
-**Output:**  The outpute is a double which represents the value of the function evaluated at the given point.
+**Output:**  The output is a double which represents the value of the function evaluated at the given point.
 
 **Example:**
 
