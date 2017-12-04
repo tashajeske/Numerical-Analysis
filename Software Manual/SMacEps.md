@@ -1,4 +1,4 @@
-#Computational Mathematics Software Manual
+# Computational Mathematics Software Manual
 
 ## **Routine Name:** SMacEps
 
