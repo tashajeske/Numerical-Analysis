@@ -12,30 +12,29 @@
 
 **Output:** The routine returns the Vector 1 Error of type double.
 
-**Example:**
-```C++
-int main(){
-vector <double> vec1={1.0,2.0,3.0,-4.0};
-vector <double> vec2={2.0, 1.0, 0.0, 1.0};
-cout << Verror1(vec1, vec2) << endl;
-}
-```
-
 **Code:**
 ```C++
 double Verror1 (vector <double> vec1, vector <double> vec2){
-double abssum=0;
-for (int i=0; i<vec1.size(); i++){
-abssum=abssum+abs(vec1[i]-vec2[i]);
-}
-return abssum;
+    double abssum=0;
+    for (int i=0; i<vec1.size(); i++){
+        abssum=abssum+abs(vec1[i]-vec2[i]);
+    }
+    return abssum;
 }
 ```
 
-**And the output is as follows:**  
+**Example:**
+```C++
+int main(){
+    vector <double> vec1={1.0,2.0,3.0,-4.0};
+    vector <double> vec2={2.0, 1.0, 0.0, 1.0};
+    cout << Verror1(vec1, vec2) << endl;
+}
+```
+
+**Results:**  
 ```
 10
 ```
 
-**Last Modification Date:**
-Oct. 3, 2017
+**Last Modification Date:** Oct. 3, 2017

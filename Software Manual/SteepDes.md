@@ -10,76 +10,9 @@
 
 **Input:**  The input is a symmetric positive definite matrix of size n x n (A), a resulting vector of size n (b), an initial guess vector of size n (x0), a tolerance, and maximum number of iterations.
 
-**Output:** The algorithm returns a vector, which is the approximate solution.
+**Output:** The algorithm returns a vector of doubles, which is the approximate solution.
 
 **Example:**
-
-```C++
-// function to calculate matrix vector multiplication
-Vec matrixvec (Matrix A, Vec v1){
-    Vec prod;
-    for (int i=0; i<A[0].size(); i++){
-        prod.push_back(0);
-    }
-    for (int i=0; i<A.size(); i++){
-        for (int j=0; j< v1.size(); j++){
-            prod[i]+=A[i][j]*v1[j];
-        }
-    }
-    return prod;
-}
-// function to calculate dot product
-double dotprod(vector <double> vec1, vector <double> vec2){
-    double sum=0.0;
-    for (int i=0; i<vec1.size(); i++){
-        sum=sum+vec1[i]*vec2[i];
-    }
-    return sum;
-}
-// function to calculate scalar multiplied by a vector
-Vec scavec (Vec v1, float a){
-    int n=(int)v1.size();
-    for (int i=0; i<n;i++){
-        v1[i]=v1[i]*a;
-    }
-    return v1;
-}
-// function to subtract one vector from another
-Vec vecsub (Vec v1, Vec v2){
-    for (int i=0; i<v1.size(); i++){
-        v1[i]=v1[i]-v2[i];
-    }
-    return v1;
-}
-int main(){
-typedef vector <vector <double>> Matrix;
-typedef vector <double> Vec;
-int n=1000;
-// initialize a symmetric positive definite matrix
-Matrix A(n, Vec(n));
-for (int i=0; i<n;i++){
-    // make the diagonals random but add the number of rows to the matrix to make sure it is diagonally dominant
-    A[i][i]=rand()%100/100.0+500;
-    for (int j=0; j<i; j++){
-        // create random entries for the lower diagonal
-        A[i][j]=rand()%100/100.0;
-        // set the corresponding transpose entries equal so that it is symmetric
-        A[j][i]=A[i][j];
-    }
-}
-// initialize a vector b of random numbers between 0 and 1
-Vec b(n);
-for (int i=0; i<n; i++){
-    b[i]=rand()%100/100.0;
-}
-// initialize a vector x0 of random numbers between 0 and 1
-Vec x0(n);
-for(int i=0; i<n; i++){
-    x0[i]=rand()%100/100.0;
-}
-SteepDes(A, b, x0, .001, 1000);
-}
-```
 
 **Code:**
 ```C++
@@ -125,10 +58,76 @@ Vec ConjGrad(Matrix A,Vec b, Vec x0, float tol, int maxIter){
 }
 ```
 
-**And the output is as follows:**  
+```C++
+// function to calculate matrix vector multiplication
+Vec matrixvec (Matrix A, Vec v1){
+    Vec prod;
+    for (int i=0; i<A[0].size(); i++){
+        prod.push_back(0);
+    }
+    for (int i=0; i<A.size(); i++){
+        for (int j=0; j< v1.size(); j++){
+            prod[i]+=A[i][j]*v1[j];
+        }
+    }
+    return prod;
+}
+// function to calculate dot product
+double dotprod(vector <double> vec1, vector <double> vec2){
+    double sum=0.0;
+    for (int i=0; i<vec1.size(); i++){
+        sum=sum+vec1[i]*vec2[i];
+    }
+    return sum;
+}
+// function to calculate scalar multiplied by a vector
+Vec scavec (Vec v1, float a){
+    int n=(int)v1.size();
+    for (int i=0; i<n;i++){
+        v1[i]=v1[i]*a;
+    }
+    return v1;
+}
+// function to subtract one vector from another
+Vec vecsub (Vec v1, Vec v2){
+    for (int i=0; i<v1.size(); i++){
+        v1[i]=v1[i]-v2[i];
+    }
+    return v1;
+}
+int main(){
+    typedef vector <vector <double>> Matrix;
+    typedef vector <double> Vec;
+    int n=1000;
+    // initialize a symmetric positive definite matrix
+    Matrix A(n, Vec(n));
+    for (int i=0; i<n;i++){
+        // make the diagonals random but add the number of rows to the matrix to make sure it is diagonally dominant
+        A[i][i]=rand()%100/100.0+500;
+        for (int j=0; j<i; j++){
+            // create random entries for the lower diagonal
+            A[i][j]=rand()%100/100.0;
+            // set the corresponding transpose entries equal so that it is symmetric
+            A[j][i]=A[i][j];
+        }
+    }
+    // initialize a vector b of random numbers between 0 and 1
+    Vec b(n);
+    for (int i=0; i<n; i++){
+        b[i]=rand()%100/100.0;
+    }
+    // initialize a vector x0 of random numbers between 0 and 1
+    Vec x0(n);
+    for(int i=0; i<n; i++){
+        x0[i]=rand()%100/100.0;
+    }
+    SteepDes(A, b, x0, .001, 1000);
+}
+```
+
+**Reults:**  
 ```
 k = 6
 ```
 
-**Last Modification Date:**
-Nov. 12, 2017
+**Last Modification Date:** Nov. 12, 2017

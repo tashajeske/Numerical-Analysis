@@ -10,9 +10,49 @@
 
 **Input:**  The input is a symmetric positive definite matrix of size n x n (A), an initial guess at the eigenvector of size n (v0), a tolerance, and maximum number of iterations.
 
-**Output:** The algorithm prints the time it takes to run and then returns the largest in absolute value of the eigenvalues. 
+**Output:** The algorithm prints the time it takes to run and then returns the largest in absolute value of the eigenvalues of type double. 
 
 **Example:**
+
+**Code:**
+```C++
+double powerM(Matrix A, Vec v0, double tol, int maxIter){
+    chrono::duration<double> time1;
+    auto start = chrono::high_resolution_clock::now();
+    // initialize y using matrix vector multiplication function
+    Vec y=matrixvec(A, v0);
+    // initialize variables
+    int c=0;
+    double error=10*tol;
+    double lambdaOld=0.0;
+    int n=(int)v0.size();
+    x(n,0);
+    double lambdaNew=0.0;
+    // loop to approximate eigenvalue
+    while(tol<error and c<maxIter){
+        // calculate 2 norm
+        double p=sqrt(dotprod(y,y));
+        // normalize vector x
+        for(int i=0; i<n; i++){
+            x[i]=y[i]/p;
+        }
+        // update y
+        y=matrixvec(A, x);
+        // update eigenvalue
+        lambdaNew=dotprod(x,y);
+        // calculate error
+        error=abs(lambdaNew-lambdaOld);
+        // update old lambda
+        lambdaOld=lambdaNew;
+        c ++;
+    }
+    Vec eigenV=x;
+    auto end=chrono::high_resolution_clock::now();
+    time1=end-start;
+    cout<<time1.count()<<endl;
+    return lambdaNew;
+}
+```
 
 ```C++
 // function to calculate matrix vector multiplication
@@ -61,51 +101,10 @@ int main(){
 }
 ```
 
-**Code:**
-```C++
-double powerM(Matrix A, Vec v0, double tol, int maxIter){
-    chrono::duration<double> time1;
-    auto start = chrono::high_resolution_clock::now();
-    // initialize y using matrix vector multiplication function
-    Vec y=matrixvec(A, v0);
-    // initialize variables
-    int c=0;
-    double error=10*tol;
-    double lambdaOld=0.0;
-    int n=(int)v0.size();
-    Vec x(n,0);
-    double lambdaNew=0.0;
-    // loop to approximate eigenvalue
-    while(tol<error and c<maxIter){
-        // calculate 2 norm
-        double p=sqrt(dotprod(y,y));
-        // normalize vector x
-        for(int i=0; i<n; i++){
-            x[i]=y[i]/p;
-        }
-        // update y
-        y=matrixvec(A, x);
-        // update eigenvalue
-        lambdaNew=dotprod(x,y);
-        // calculate error
-        error=abs(lambdaNew-lambdaOld);
-        // update old lambda
-        lambdaOld=lambdaNew;
-        c ++;
-    }
-    Vec eigenV=x;
-    auto end=chrono::high_resolution_clock::now();
-    time1=end-start;
-    cout<<time1.count()<<endl;
-    return lambdaNew;
-}
-```
-
-**And the output is as follows:**  
+**Results:**  
 ```
 0.242958
 994.867
 ```
 
-**Last Modification Date:**
-Nov. 29, 2017
+**Last Modification Date:** Nov. 29, 2017

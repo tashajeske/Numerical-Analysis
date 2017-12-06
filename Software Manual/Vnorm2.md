@@ -12,30 +12,29 @@
 
 **Output:** The routine provides the Vector 2 Norm of type double.
 
-**Example:**
-```C++
-int main(){
-vector <double> vec1={1.0,2.0,3.0,-4.0};
-cout << Vnorm2(vec1) << endl;
-}
-```
-
 **Code:**
 ```C++
 double Vnorm2(vector <double> vec){
-double sumsq=0.0;
-for (int i=0; i<vec.size(); i++){
-sumsq= sumsq + pow(vec[i], 2);
-}
-double norm = sqrt(sumsq);
-return norm;
+    double sumsq=0.0;
+    for (int i=0; i<vec.size(); i++){
+        sumsq= sumsq + pow(vec[i], 2);
+    }
+    double norm = sqrt(sumsq);
+    return norm;
 }
 ```
 
-**And the output is as follows:**  
+**Example:**
+```C++
+int main(){
+    vector <double> vec1={1.0,2.0,3.0,-4.0};
+    cout << Vnorm2(vec1) << endl;
+}
+```
+
+**Results:**  
 ```
 5.47723
 ```
 
-**Last Modification Date:**
-Oct. 3, 2017
+**Last Modification Date:** Oct. 3, 2017

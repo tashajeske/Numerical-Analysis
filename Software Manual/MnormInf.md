@@ -12,33 +12,32 @@
 
 **Output:** The routine provides the Matrix Infinity Norm of type double.
 
-**Example:**
-```C++
-int main(){
-vector < vector < double >> matrix1 = {{-5,2,1},{1,2, -9}, {0, -4, 12}};
-cout << MnormInf(matrix1) << endl;
-}
-```
-
 **Code:**
 ```C++
 double MnormInf (vector<vector<double>> matrix){
-double norm=0.0;
-for (int i=0; i<matrix.size(); i++){
-double sum=0.0;
-for (int j=0; j< matrix[i].size(); j++){
-sum+=abs(matrix[i][j]);
-}
-if (sum > norm) norm = sum;
-}
-return norm;
+    double norm=0.0;
+    for (int i=0; i<matrix.size(); i++){
+        double sum=0.0;
+        for (int j=0; j< matrix[i].size(); j++){
+            sum+=abs(matrix[i][j]);
+        }
+        if (sum > norm) norm = sum;
+    }
+    return norm;
 }
 ```
 
-**And the output is as follows:**  
+**Example:**
+```C++
+int main(){
+    vector < vector < double >> matrix1 = {{-5,2,1},{1,2, -9}, {0, -4, 12}};
+    cout << MnormInf(matrix1) << endl;
+}
+```
+
+**Results:**  
 ```
 16
 ```
 
-**Last Modification Date:**
-Oct. 3, 2017
+**Last Modification Date:** Oct. 3, 2017

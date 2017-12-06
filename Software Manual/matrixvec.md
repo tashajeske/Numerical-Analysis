@@ -12,35 +12,36 @@
 
 **Output:** The routine provides a vector of type double with the dimensions: rows of matrix x 1.
 
-```C++
-int main(){
-vector < vector < double >> matrix1 = {{-5,2,1},{1,2, -9}, {0, -4, 12}};
-vector <double> vec3= {1,2,1};
-matrixvec(matrix1, vec3);
-```
-
 **Code:**
 ```C++
 vector <double> matrixvec (vector<vector<double>> matrix, vector <double> vec){
-vector <double> prod;
-for (int i=0; i<matrix[0].size(); i++){
-prod.push_back(0);
-}
-for (int i=0; i<matrix.size(); i++){
-for (int j=0; j< vec.size(); j++){
-prod[i]+=matrix[i][j]*vec[j];
-}
-cout << prod[i] << "  ";
-}
-cout << endl;
-return prod;
+    vector <double> prod;
+    for (int i=0; i<matrix[0].size(); i++){
+        prod.push_back(0);
+    }
+    for (int i=0; i<matrix.size(); i++){
+        for (int j=0; j< vec.size(); j++){
+            prod[i]+=matrix[i][j]*vec[j];
+        }
+        cout << prod[i] << "  ";
+    }
+    cout << endl;
+    return prod;
 }
 ```
 
-**And the output is as follows:**  
+**Example:**
+```C++
+int main(){
+    vector < vector < double >> matrix1 = {{-5,2,1},{1,2, -9}, {0, -4, 12}};
+    vector <double> vec3= {1,2,1};
+    matrixvec(matrix1, vec3);
+}
+```
+
+**Results:**  
 ```
 0  -4  4   
 ```
 
-**Last Modification Date:**
-Oct. 3, 2017
+**Last Modification Date:** Oct. 3, 2017

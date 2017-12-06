@@ -8,12 +8,35 @@
 
 **Description:** The Polynomial Interpolation routine will evaluate the polynomial found using Newton's method at a point that does not exist in the data set. It does this by calling the Divided Differnce Table function to calculate the coefficients of the polynomial and then interpolating to points not in the data set. 
 
-**Input:**  Two vectors x and y representing the data set are inputs to the function and a point at which to iterpolate of type double.
+**Input:**  Two vectors of doubles, x and y, representing the data set are inputs to the function and a point at which to iterpolate of type double.
 
 **Output:**  The output is a double which represents the value of the function evaluated at the given point.
 
-**Example:**
+**Code:**
+```C++
+double PolyInterp (Vec x, Vec y, double t){
+    // need coefficients so call Divided Difference Table function to calculate them
+    Vec coeff=DividedDiffTable(x, y);
+    // intialize variables
+    double eval=0.0;
+    int n=(int)x.size();
+    // loop to evaluate the function created using the coefficients and vector x with a given t
+    // f(x)=c0+c1(t-x0)+c2(t-x0)(t-x1)+...
+    for (int i=0; i<n; i++){
+        // start with the coefficient
+        double temp=coeff[i];
+        // then multiply in t-x0 or however many needed factors
+        for (int j=0; j<i; j++){
+            temp=temp*(t-x[j]);
+        }
+        // add up all the temp variables to get the final value
+        eval+=temp;
+    }
+    return eval;
+}
+```
 
+**Example:**
 ```C++
 // divide an interval from -1 to 1 n times
 Vec x(int n){
@@ -46,31 +69,7 @@ int main(){
 }
 ```
 
-**Code:**
-```C++
-double PolyInterp (Vec x, Vec y, double t){
-    // need coefficients so call Divided Difference Table function to calculate them
-    Vec coeff=DividedDiffTable(x, y);
-    // intialize variables
-    double eval=0.0;
-    int n=(int)x.size();
-    // loop to evaluate the function created using the coefficients and vector x with a given t
-    // f(x)=c0+c1(t-x0)+c2(t-x0)(t-x1)+...
-    for (int i=0; i<n; i++){
-        // start with the coefficient
-        double temp=coeff[i];
-        // then multiply in t-x0 or however many needed factors
-        for (int j=0; j<i; j++){
-            temp=temp*(t-x[j]);
-        }
-        // add up all the temp variables to get the final value
-        eval+=temp;
-    }
-    return eval;
-}
-```
-
-**And the output is as follows:**  
+**Results:**  
 ```
 2.16667
 0.367434
@@ -83,5 +82,4 @@ double PolyInterp (Vec x, Vec y, double t){
 2.18019e+173
 ```
 
-**Last Modification Date:**
-Nov. 30, 2017
+**Last Modification Date:** Nov. 30, 2017

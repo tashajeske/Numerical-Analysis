@@ -6,7 +6,7 @@
 
 **Language:** C++
 
-**Description:** This routine will calculate the floating point precision of the computer I am working on. The program adds a value to one. This value is initially one, but is divided by two each iteration, until the sum is accepted as one. The value on the final iteration provides the machine epsilon of the computer. 
+**Description:** This single machine epsilon routine will calculate the floating point precision of the computer being used. The program adds a value to one. This value is initially one, but is divided by two each iteration, until the sum is accepted as one. The value on the final iteration provides the machine epsilon of the computer. 
 
 **Input:** Since this routine is specific in the values it uses to calculate the accuracy, there is no input.
 
@@ -30,7 +30,8 @@ int main(){
     SMacEps();
 }
 ```
-**Example Output:** 
+
+**Results:** 
 ``` C++
 "The machine epsilon for floating point number system is 5.96046e-08"
 ```
