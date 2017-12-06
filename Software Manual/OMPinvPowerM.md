@@ -13,8 +13,6 @@
 
 **Output:** The algorithm prints the time it takes to run and then returns the largest in absolute value of the eigenvalues. 
 
-**Example:**
-
 **Code:**
 ```C++
 double invPowerM (Matrix A, Vec v0, double tol, int maxIter){
@@ -55,6 +53,7 @@ double invPowerM (Matrix A, Vec v0, double tol, int maxIter){
 }
 ```
 
+**Example:**
 ```C++
 // function to calculate matrix vector multiplication
 Vec matrixvec (Matrix A, Vec v1){
