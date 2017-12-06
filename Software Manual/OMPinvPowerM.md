@@ -15,6 +15,46 @@
 
 **Example:**
 
+**Code:**
+```C++
+double invPowerM (Matrix A, Vec v0, double tol, int maxIter){
+    chrono::duration<double> time1;
+    auto start = chrono::high_resolution_clock::now();
+    Vec y=ConjGrad(A, v0, v0, tol, maxIter);
+    // initialize variables
+    int c=0;
+    double error=10*tol;
+    double lambdaOld=0.0;
+    int n=(int)y.size();
+    Vec x(n,0);
+    double lambdaMax=0.0;
+    // loop to approximate eigenvalue
+    while(tol<error and c<maxIter){
+        // calculate 2 norm
+        double p=sqrt(dotprod(y,y));
+        // normalize vector
+        for(int i=0; i<n; i++){
+            x[i]=y[i]/p;
+        }
+        // use conjgrad to calculate "inverse"
+        y = ConjGrad(A, x, x, tol, maxIter);
+        // update eigenvalue
+        lambdaMax=dotprod(x,y);
+        // calculate error
+        error=abs(lambdaMax-lambdaOld);
+        // update old lambda
+        lambdaOld = lambdaMax;
+        c++;
+    }
+    Vec eigenV=x;
+    // report inverse of eigenvalue since we took eigenvalue of inverse matrix
+    auto end=chrono::high_resolution_clock::now();
+    time1=end-start;
+    cout<<time1.count()<<endl;
+    return 1.0/lambdaMax;
+}
+```
+
 ```C++
 // function to calculate matrix vector multiplication
 Vec matrixvec (Matrix A, Vec v1){
@@ -129,51 +169,10 @@ int main(){
 }
 ```
 
-**Code:**
-```C++
-double invPowerM (Matrix A, Vec v0, double tol, int maxIter){
-    chrono::duration<double> time1;
-    auto start = chrono::high_resolution_clock::now();
-    Vec y=ConjGrad(A, v0, v0, tol, maxIter);
-    // initialize variables
-    int c=0;
-    double error=10*tol;
-    double lambdaOld=0.0;
-    int n=(int)y.size();
-    Vec x(n,0);
-    double lambdaMax=0.0;
-    // loop to approximate eigenvalue
-    while(tol<error and c<maxIter){
-        // calculate 2 norm
-        double p=sqrt(dotprod(y,y));
-        // normalize vector
-        for(int i=0; i<n; i++){
-            x[i]=y[i]/p;
-        }
-        // use conjgrad to calculate "inverse"
-        y = ConjGrad(A, x, x, tol, maxIter);
-        // update eigenvalue
-        lambdaMax=dotprod(x,y);
-        // calculate error
-        error=abs(lambdaMax-lambdaOld);
-        // update old lambda
-        lambdaOld = lambdaMax;
-        c++;
-    }
-    Vec eigenV=x;
-    // report inverse of eigenvalue since we took eigenvalue of inverse matrix
-    auto end=chrono::high_resolution_clock::now();
-    time1=end-start;
-    cout<<time1.count()<<endl;
-    return 1.0/lambdaMax;
-}
-```
-
-**And the output is as follows:**  
+**Results:**  
 ```
 0.072212
 501.713
 ```
 
-**Last Modification Date:**
-Nov. 29, 2017
+**Last Modification Date:** Nov. 29, 2017
