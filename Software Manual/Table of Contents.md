@@ -29,9 +29,11 @@
 13. [Matrix-Vector Multiplication](./matrixvec.md)
 14. [Matrix-Matrix Multiplication](./matrixmatrix.md)
 
-### Linear Algebra Computations Using Open MP
-1. [Matrix-Vector Multiplication](./OMPmatrixvec.md)
-2. [Matrix-Matrix Multiplication](./OMPmatrixmatrix.md)
+### Linear Algebra Computations Using Openmp
+1. [Introduction to Openmp](./Openmp.md)
+2. [Matrix-Vector Multiplication](./OMPmatrixvec.md)
+3. [Matrix-Matrix Multiplication](./OMPmatrixmatrix.md)
+4. [Openmp comparison](./Ocomp1.md)
 
 ### Solve Linear Systems: Direct Methods
 1. [LU Factorization](lufactor.md)
@@ -58,7 +60,8 @@
 
 ### Polynomial Interpolation
 1. [Divided Difference Table](./DividedDiffTable.md)
-2. [Polynomial Interpolation](./PolyInterp.md)
+2. [Newton's Approach to Polynomial Interpolation](./PolyInterp.md)
+3. [Fast Fourier Transform](./fft.md)
 
 
 

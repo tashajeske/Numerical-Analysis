@@ -26,7 +26,7 @@ double powerM(Matrix A, Vec v0, double tol, int maxIter){
     double error=10*tol;
     double lambdaOld=0.0;
     int n=(int)v0.size();
-    x(n,0);
+    Vec x(n,0);
     double lambdaNew=0.0;
     // loop to approximate eigenvalue
     while(tol<error and c<maxIter){
@@ -69,16 +69,16 @@ Vec matrixvec (Matrix A, Vec v1){
     return prod;
 }
 // function to calculate dot product
-double dotprod(vector <double> vec1, vector <double> vec2){
+double dotprod(Vec vec1, Vec vec2){
     double sum=0.0;
     for (int i=0; i<vec1.size(); i++){
         sum=sum+vec1[i]*vec2[i];
     }
     return sum;
 }
-int main(){
-    typedef vector <vector <double>> Matrix;
-    typedef vector <double> Vec;
+typedef vector <vector <double>> Matrix;
+typedef vector <double> Vec;
+int main(){    
     int n=1000;
     // initialize a symmetric positive definite matrix
     Matrix A(n, Vec(n));

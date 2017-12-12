@@ -58,6 +58,9 @@ Vec ConjGrad(Matrix A,Vec b, Vec x0, float tol, int maxIter){
 
 **Example:**
 ```C++
+typedef vector <vector <double>> Matrix;
+typedef vector <double> Vec;
+
 // function to calculate matrix vector multiplication
 Vec matrixvec (Matrix A, Vec v1){
     Vec prod;
@@ -98,9 +101,14 @@ Vec vecadd (Vec v1, Vec v2){
     return v1;
 }
 
+Vec vecsub (Vec v1, Vec v2){
+    for (int i=0; i<v1.size(); i++){
+        v1[i]=v1[i]-v2[i];
+    }
+    return v1;
+}
+
 int main(){
-    typedef vector <vector <double>> Matrix;
-    typedef vector <double> Vec;
     int n=1000;
     // initialize a symmetric positive definite matrix
     Matrix A(n, Vec(n));
