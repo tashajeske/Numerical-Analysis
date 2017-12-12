@@ -8,7 +8,7 @@
 
 Using routines from previous homework assignments, the absolute error for each iteration of the power method has been recorded (see results section below) for both matrix A and matrix B described in example 8.2. A plot has been attached behind this page that shows a comparison of the two matrices and their convergence (as absolute error decreases). This verifies what we find in the text. When the entry 31 is changed to be 30, the iterations converge to an approximate solution faster. 
 
-The code below also calculates the largest eigenvalues (using power method) and the least eigenvalues (using inverse power method). We see for Matrix A the largest eigenvalue is 31.9986 and tle least eigenvalue is 1.00003. Then for Matrix B the largest eigenvalue is 31.9993 and tle least eigenvalue is 1.00003.
+The code below also calculates the largest eigenvalues (using power method) and the least eigenvalues (using inverse power method). We see for Matrix A the largest eigenvalue is 31.9986 and tle least eigenvalue is 1.00003. Then for Matrix B the largest eigenvalue is 31.9993 and the least eigenvalue is 1.00003.
 
 Example:
 ```C++
