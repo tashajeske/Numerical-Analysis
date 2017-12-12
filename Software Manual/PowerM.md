@@ -12,8 +12,6 @@
 
 **Output:** The algorithm prints the time it takes to run and then returns the largest in absolute value of the eigenvalues of type double. 
 
-**Example:**
-
 **Code:**
 ```C++
 double powerM(Matrix A, Vec v0, double tol, int maxIter){
@@ -54,6 +52,7 @@ double powerM(Matrix A, Vec v0, double tol, int maxIter){
 }
 ```
 
+**Example:**
 ```C++
 // function to calculate matrix vector multiplication
 Vec matrixvec (Matrix A, Vec v1){
@@ -68,6 +67,7 @@ Vec matrixvec (Matrix A, Vec v1){
     }
     return prod;
 }
+
 // function to calculate dot product
 double dotprod(Vec vec1, Vec vec2){
     double sum=0.0;
@@ -76,8 +76,10 @@ double dotprod(Vec vec1, Vec vec2){
     }
     return sum;
 }
+
 typedef vector <vector <double>> Matrix;
 typedef vector <double> Vec;
+
 int main(){    
     int n=1000;
     // initialize a symmetric positive definite matrix

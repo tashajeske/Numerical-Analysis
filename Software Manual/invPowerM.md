@@ -50,6 +50,9 @@ double invPowerM (Matrix A, Vec v0, double tol, int maxIter){
 **Example:**
 
 ```C++
+typedef vector <vector <double>> Matrix;
+typedef vector <double> Vec;
+
 // function to calculate matrix vector multiplication
 Vec matrixvec (Matrix A, Vec v1){
     Vec prod;
@@ -133,8 +136,6 @@ Vec ConjGrad(Matrix A,Vec b, Vec x0, float tol, int maxIter){
     return x0;
 }
 int main(){
-    typedef vector <vector <double>> Matrix;
-    typedef vector <double> Vec;
     int n=1000;
     Matrix A(n, Vec(n));
     for (int i=0; i<n;i++){
