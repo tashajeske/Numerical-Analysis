@@ -4,7 +4,7 @@
 
 ## Problem 6:
 
-** #10 on page 326 **
+**#10 on page 326 **
 
 Proposed algorithm:
 
