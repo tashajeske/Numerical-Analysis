@@ -27,13 +27,13 @@ Vec DividedDiffTable (Vec x, Vec y){
     }
     // loop to calculate divided differences for remainng columns
     // from column 2 and on (since first two columns are data set)
+    int k=1;
     for (int j=2; j<n+1; j++){
-        // a counter k to know which divided difference order we are on
-        for (int k=1; k<n; k++){
             // using previous values in table calculate higher order divided differences
             for (int i=k; i<n; i++){
                 difftable[i][j]=(difftable[i][j-1]-difftable[i-1][j-1])/(difftable[i][0]-difftable[i-k][0]);
             }
+            k++;
         }
     }
     Vec coeff(n);
@@ -83,7 +83,7 @@ int main(){
 **Results:**  
 ```
 1  2  -0.666667
-0.0384615  0.153846  0.432692  -0.707799  0.5441 
+0.0384615  0.153846  1.05769  -1.92308  1.20192  -3.66374e-15  
 ```
 
 **Last Modification Date:** Nov. 30, 2017
