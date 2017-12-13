@@ -2,7 +2,7 @@
 
 ## Time comparisons between Sequential and Openmp for Matrix computations
 
-# Matrix-Vector Multiplication
+### Matrix-Vector Multiplication
 
 Size of matrix | Sequential (sec) |  Openmp (sec)
 ------------ | ------------- | ------------- 
@@ -12,7 +12,7 @@ Size of matrix | Sequential (sec) |  Openmp (sec)
 4000 x 4000 | 0.130674 | 0.005687
 
 
-# Matrix-Matrix Multiplication
+### Matrix-Matrix Multiplication
 
 Size of matrix | Sequential (sec) |  Openmp (sec)
 ------------ | ------------- | ------------- 
