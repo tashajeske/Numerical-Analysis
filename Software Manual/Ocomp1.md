@@ -5,6 +5,6 @@
 
 
 Size of matrix | Sequential  |  Openmp
------------- | -------------  |
-Content from cell 1 | Content from cell 2  |
-Content in the first column | Content in the second column  |
+------------ | ------------- | ------------- 
+10 x 10 | 5 sec | 3 sec
+100 x100 | 10 sec | 5 sec
