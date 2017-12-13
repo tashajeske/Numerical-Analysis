@@ -49,6 +49,7 @@
 2. [Gauss-Seidel](./OMPGaussSeidel.md)
 3. [Steepest Descent](./OMPSteepDes.md)
 4. [Conjugate Gradient](./OMPConjGrad.md)
+5. [Openmp comparison](./Ocomp2.md)
 
 ### Eigenvalue Methods
 1. [Power Method](./PowerM.md)
@@ -57,6 +58,7 @@
 ### Eigenvalue Methods using Open MP
 1. [Power Method](./OMPPowerM.md)
 2. [Inverse Power Method](./OMPinvPowerM.md)
+3. [Openmp comparison](./Ocomp3.md)
 
 ### Polynomial Interpolation
 1. [Divided Difference Table](./DividedDiffTable.md)
